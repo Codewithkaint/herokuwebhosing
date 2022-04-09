@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOPS</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .first {
+        border: 4px solid black;
+        background: #caeae0;
+        margin: 10px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: underline;
+
+    }
+
+    .first p {
+        color: blue;
+        text-align: center;
+        font-size: 22px;
+        margin: 22px;
+    }
+
+    h2 {
+        text-align: center;
+
+    }
+
+    pre {
+        padding: 10px 12px;
+        font-size: 18px;
+        text-align: left;
+        margin: 26px auto;
+        display: block;
+        width: 90%;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+    }
+
+    .second {
+        border: 3px solid black;
+        background-color: #bae98b;
+        margin: 30px 10px;
+        padding: 15px 0px;
+    }
+
+    ul { margin: 22px;
+        
+    }
+
+    li {
+        font-size: 22px;
+        font-weight: bold;
+
+    }
+
+    #bb {
+        color: rgb(241, 13, 13);
+        text-decoration: underline;
+    }
+.nav{
+    display: flex;
+    justify-content: center;
+    margin: 2px auto;
+}
+.box li{
+    margin: 20px;
+}
+    @media only screen and (max-width:1000px) {
+        .second {
+            width: 230vw;
+
+        }
+
+        .first {
+            display: block;
+            margin: 20px 10px;
+            width: 220vw;
+        }
+
+    }
+</style>
+
+<body>
+    <section class="first">
+        <h1>FUNCTIONS</h1>
+        <p>In c, we can divide a large program into the basic building blocks known as function. The function contains the set of programming statements enclosed by {}. A function can be called multiple times to provide reusability and modularity to the C program. In other words, we can say that the collection of functions creates a program. The function is also known as procedureor subroutinein other programming languages<p>
+           
+        <div class="nav">
+        <ul>
+            <li>By using functions, we can avoid rewriting same logic/code again and again in a program.</li>
+            <li>We can call C functions any number of times in a program and from any place in a program.</li>
+            <li>We can track a large C program easily when it is divided into multiple functions.</li>
+        </ul>
+    </div>
+    <p>There are three aspects of a C function.</p>
+        <div class="box">
+                            <ul>
+                    <li><strong >FUNCTION-DECLARATION:</strong> A function must be declared globally in a c program to tell the compiler about the function name, function parameters, and return type..</li>
+                    <li><strong>CALL-FUNCTION: </strong> Function can be called from anywhere in the program. The parameter list must not differ in function calling and function declaration. We must pass the same number of functions as it is declared in the function declaration.</li>
+                    <li><strong>FUNCTION-DEFINITION: </strong>It contains the actual statements which are to be executed. It is the most important aspect to which the control comes when the function is called. Here, we must notice that only one value can be returned from the function.</li>
+                </ul>
+            </div>  
+           
+        </div>
+    </section>
+    <section class="second">
+        <h2>Example 1:Program to find cube using function</h2>
+        <pre>
+
+#include &lt;stdio.h&gt;
+
+/* Function declaration */
+double cube(double num);
+            
+int main()
+    {
+    int num;
+    double c;
+                
+    /* Input number to find cube from user */
+    printf("Enter any number: ");
+    scanf("%d", &num);
+                
+    c = cube(num);
+            
+    printf("Cube of %d is %.2f", num, c); 
+                
+    return 0;
+    }
+            
+    /**
+    * Function to find cube of any number
+    */
+    double cube(double num)
+    {
+    return (num * num * num);
+    }
+</pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 2:C program to check prime, armstrong, perfect number using functions</h2>
+        <div class="box">
+            <pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+                
+                
+/* Function declarations */
+int isPrime(int num);
+int isArmstrong(int num);
+int isPerfect(int num);
+                
+                
+int main()
+{
+    int num;
+                    
+    printf("Enter any number: ");
+    scanf("%d", &num);
+                    
+    // Call isPrime() functions
+    if(isPrime(num))
+    {
+    printf("%d is Prime number.\n", num);
+    }
+    else
+    {
+    printf("%d is not Prime number.\n", num);
+    }
+                    
+    // Call isArmstrong() function
+    if(isArmstrong(num))
+    {
+    printf("%d is Armstrong number.\n", num);
+    }
+    else
+    {
+    printf("%d is not Armstrong number.\n", num);
+    }
+        
+    // Call isPerfect() function
+    if(isPerfect(num))
+    {
+    printf("%d is Perfect number.\n", num);
+    }
+    else
+    {
+    printf("%d is not Perfect number.\n", num);
+    }
+                
+    return 0;
+}
+                
+                
+                
+/**
+* Check whether a number is prime or not. 
+* Returns 1 if the number is prime otherwise 0.
+*/
+int isPrime(int num) 
+{
+    int i;
+                
+    for(i=2; i&lt;=num/2; i++)  
+    {  
+    /*  
+    * If the number is divisible by any number  
+    * other than 1 and self then it is not prime 
+    */  
+    if(num%i == 0)  
+    {
+    return 0;
+    }  
+    } 
+                    
+    return 1; 
+    }
+            
+                
+                
+    /**
+    * Check whether a number is Armstrong number or not. 
+    * Returns 1 if the number is Armstrong otherwise 0.
+    */
+    int isArmstrong(int num) 
+    {
+    int lastDigit, sum, originalNum, digits;
+    sum = 0;
+                    
+    originalNum = num;
+                
+    /* Find total digits in num */
+    digits = (int) log10(num) + 1;
+    
+    /*
+    * Calculate sum of power of digits
+    */
+    while(num &gt; 0)
+    {
+    // Extract the last digit
+    lastDigit = num % 10;
+            
+    // Compute sum of power of last digit
+    sum = sum + round(pow(lastDigit, digits));
+        
+    // Remove the last digit
+    num = num / 10;
+    }
+                    
+    return (originalNum == sum);
+    }
+                
+                
+                
+    /**
+    * Check whether the number is perfect number or not. 
+    * Returns 1 if the number is perfect otherwise 0.
+    */
+    int isPerfect(int num) 
+    {
+    int i, sum, n;
+    sum = 0;
+    n = num;
+    
+    for(i=1; i&lt;n; i++)  
+    {  
+    /* If i is a divisor of num */  
+    if(n%i == 0)  
+    {  
+        sum += i;  
+    }  
+    }
+        
+    return (num == sum);
+}                         </pre>
+        </div>
+    </section>
+
+
+
+    <section class="second">
+        <h2>Example 3:Program to find LCM using recursion</h2>
+        <pre>
+
+#include &lt;stdio.h&gt;
+
+
+/* Function declaration */
+int lcm(int a, int b);
+            
+            
+int main()
+{
+    int num1, num2, LCM;
+        
+    /* Input two numbers from user */
+    printf("Enter any two numbers to find lcm: ");
+    scanf("%d%d", &num1, &num2);
+        
+    /*
+    * Ensures that first parameter of LCM function 
+    * is always less than second 
+    */
+    if(num1 &gt; num2)
+    LCM = lcm(num2, num1);
+    else
+    LCM = lcm(num1, num2);
+                
+    printf("LCM of %d and %d = %d", num1, num2, LCM);
+                
+    return 0;
+    }
+            
+            
+    /**
+    * Recursive function to find lcm of  'a' and 'b'.
+    * Here 'a' needs to be always less than 'b'.
+    */
+    int lcm(int a, int b)
+    {
+    static int multiple = 0;
+                
+    /* Increments multiple by adding max value to it */
+    multiple += b;
+            
+    /*
+    * Base condition of recursion
+    * If found a common multiple then return the multiple.
+    */
+    if((multiple % a == 0) && (multiple % b == 0))
+    {
+    return multiple;
+    }
+    else 
+    {
+    return lcm(a, b);
+    }
+}           
+</pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 4:Declare recursive function to find nth Fibonacci term</h2><pre>
+#include &lt;stdio.h&gt;
+
+
+/* Function declaration */
+unsigned long long fibo(int num);
+        
+        
+int main()
+{
+    int num;
+    unsigned long long fibonacci;
+    
+    /* Input a number from user */
+    printf("Enter any number to find nth fiboacci term: ");
+    scanf("%d", &num);
+        
+    fibonacci = fibo(num); 
+        
+    printf("%d fibonacci term is %llu", num, fibonacci);
+
+    return 0;
+}
+        
+        
+    /**
+    * Recursive function to find nth Fibonacci term
+    */
+    unsigned long long fibo(int num) 
+    {
+    if(num == 0)      //Base condition
+    return 0;
+    else if(num == 1) //Base condition
+    return 1;
+    else 
+    return fibo(num-1) + fibo(num-2); 
+} </pre>
+    </section>
+
+
+
+
+    <section class="second">
+        <h2>Example 5:C Program to reverse a given number using Recursive function</h2>
+
+        <pre>
+#include&lt;stdio.h&gt;
+int reverse_function(int num);
+int main(){
+    int num,reverse_number;
+        
+    //User would input the number
+    printf("\nEnter any number:");
+    scanf("%d",&amp;num);
+    
+    //Calling user defined function to perform reverse
+    reverse_number=reverse_function(num);
+    printf("\nAfter reverse the no is :%d",reverse_number);
+    return 0;
+    }
+    int sum=0,rem;
+    int reverse_function(int num){
+    if(num){
+    rem=num%10;
+    sum=sum*10+rem;
+    reverse_function(num/10);
+    }
+    else
+    return sum;
+    return sum;
+            
+}
+            </pre>
+    </section>
+
+
+    <section class="second">
+        <h2>Example 6:Find Square of a Number Using more than One Functions</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+// function declarations
+int getNumber();
+int square(int n);
+void display(int n, int sqr);
+            
+int main()
+    {
+    int num = getNumber();
+    int result = square(num);
+    display(num, result);
+    return 0;
+    }
+            
+    // function for get input from the user
+    int getNumber()
+    {
+    int n;
+    printf(&#34;Enter an Integer number: &#34;);
+    scanf(&#34;%d&#34;,&amp;n);
+    return n;
+    }
+            
+    // function for finding square value
+    int square(int n)
+    {
+    return n*n;
+    }
+        
+    // function for displaying result
+    void display(int n, int sqr)
+    {
+    printf(&#34;Square of %d = %d\n&#34;, n, sqr);
+            
+          
+}
+</pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 7:Check Number can be Expressed as the Sum of Two Prime Numbers</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+        
+int check(int a);
+int main()
+{
+   int n, j, flag;
+
+   printf(&#34;Enter a number: &#34;);
+   scanf(&#34;%d&#34;,&amp;n);
+
+   // divide number into two parts j and (n-j)
+   // such as n = j + (n-j)
+   for(j=2;j&lt;=n/2;j++)
+   {
+       // condition for j to be a prime number
+       if(check(j)==0)
+       {
+          // condition for n-j to be a prime number
+          if(check(n-j)==0)
+          {
+             // n= j + (n-j)
+             printf(&#34; %d + %d = %d\n&#34;, j, n-j, n);
+             flag=0;
+          }
+       }
+   }
+
+   if(flag==1)
+       printf(&#34;Can&#39;t be sum of two prime Numbers.\n&#34;);
+
+   return 0;
+}
+
+int check(int a)
+{
+   int i, flag=0;
+
+   for(i=2;i&lt;=a/2;i++)
+   {
+       if(a%i==0)
+          flag++;
+   }
+
+   if(flag==0)
+       return 0;
+   else
+       return 1;
+}
+                      </pre>
+    </section>
+    <section class="second">
+        <h2> Example 8:Find the Absolute Value of a Number by Defining a User-defined Function</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+// function declaration
+float absolute(int n);
+
+int main()
+{
+   int num, result;
+
+   printf(&#34;Enter a number: &#34;);
+   scanf(&#34;%d&#34;, &amp;num);
+
+   result = absolute(num); //function calling
+   printf(&#34;Absolute value of %d = %d\n&#34;, num, result);
+
+   return 0;
+}
+
+// function definition
+float absolute(int n)
+{
+   if(n&lt;0) return -n;
+   else return n; 
+}
+    </pre>
+    </section>
+
+
+    <section class="second">
+        <h2>Example 9:C Program to Find the Area of a Rectangle Using Functions</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+
+
+// function declaration
+float findArea(float l, float b); 
+
+int main()
+{
+  float length, width, result;
+
+  printf(&#34;Enter the length and width of the rectangle: &#34;);
+  scanf(&#34;%f %f&#34;, &amp;length, &amp;width);
+
+  result = findArea(length, width); //function calling
+  printf(&#34;Area of rectangle = %.2f\n&#34;,result);
+
+  return 0;
+}
+
+// function to find ara of rectangle
+// function definition
+float findArea(float l, float b)
+{
+  float area;
+  area = l * b;
+  return area; //return statement
+}
+</pre>
+    </section>
+</body>
+
+</html>

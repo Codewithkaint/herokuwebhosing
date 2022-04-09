@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOPS</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .first {
+        border: 4px solid black;
+        background: #caeae0;
+        margin: 10px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: underline;
+
+    }
+
+    .first p {
+        color: blue;
+        text-align: center;
+        font-size: 22px;
+        margin: 22px;
+    }
+
+    h2 {
+        text-align: center;
+
+    }
+
+    pre {
+        padding: 10px 12px;
+        font-size: 18px;
+        text-align: left;
+        margin: 26px auto;
+        display: block;
+        width: 90%;
+        background-color: black;
+        color: white;
+        font-weight: bold;
+    }
+
+    .second {
+        border: 3px solid black;
+        background-color: #bae98b;
+        margin: 30px 10px;
+        padding: 15px 0px;
+    }
+
+    ul { margin: 22px;
+        
+    }
+
+    li {
+        font-size: 22px;
+        font-weight: bold;
+
+    }
+
+    #bb {
+        color: rgb(241, 13, 13);
+        text-decoration: underline;
+    }
+.nav{
+    display: flex;
+    justify-content: center;
+    margin: 2px auto;
+}
+.box li{
+    margin: 20px;
+}
+    @media only screen and (max-width:1000px) {
+        .second {
+            width: 230vw;
+
+        }
+
+        .first {
+            display: block;
+            margin: 20px 10px;
+            width: 220vw;
+        }
+
+    }
+</style>
+
+<body>
+    <section class="first">
+        <h1>ARAYS</h1>
+        <p>An array is a collection of similar data elements stored at contiguous memory locations. It is the
+                simplest
+                data structure where each data element can be accessed directly by only using its index number.
+
+                For instance, if we want to store the marks scored by a student in 5 subjects, then there’s no need to
+                define individual variables for each subject. Rather, we can define an array which will store the data
+                elements at contiguous memory locations
+ <p>
+     <p> array marks[5] defines the marks scored by a student in 5 different subjects where each subject marks
+                are located at a particular location in the array</p>
+           
+      
+    </section>
+    <section class="second">
+        <h2>Example 1:Program to take 5 values from the user and store them in an array</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+        
+int main() {
+    int values[5];
+            
+    printf("Enter 5 integers: ");
+    
+    // taking input and storing it in an array
+    for(int i = 0; i &lt; 5; ++i) {
+    scanf("%d", &amp;values[i]);
+    }
+            
+    printf("Displaying integers: ");
+            
+    // printing elements of an array
+    for(int i = 0; i &lt; 5; ++i) {
+    printf("%d\n", values[i]);
+    }
+    return 0;
+}
+       
+
+</pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 2:Program to find the average of n numbers using arrays</h2>
+        <div class="box">
+            <pre>
+#include&lt;stdio.h&gt;
+        
+int main() {
+                
+    int marks[10], i, n;
+    float sum = 0, average;
+                
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+                
+    for(i=0; i&lt;n; ++i) {
+    printf("Enter number%d: ",i+1);
+    scanf("%d", &amp;marks[i]);
+                          
+    // add int entered by the user to the sum variable
+    sum += marks[i];
+    }
+                
+    average = sum / n;
+    printf("Average = %f", average);
+            
+    return 0;
+    }
+}                         </pre>
+        </div>
+    </section>
+
+
+
+    <section class="second">
+        <h2>Example 3:C program to find maximum and minimum element in array</h2>
+        <pre>
+
+#include&lt;stdio.h&gt;
+void main()
+{
+    int arr1[100];
+    int i, mx, mn, n;
+    printf("Input the number of elements:");
+    scanf("%d",&n);
+       
+    printf("Input %d  :\n",n);
+    for(i=0;i&lt;n;i++)
+    {
+    printf("element - %d : ",i);
+    scanf("%d",&arr1[i]);
+    }
+    mx = arr1[0];
+    mn = arr1[0];
+    
+    for(i=1; i&lt;n; i++)
+    {
+    if(arr1[i]>mx)
+    {
+    mx = arr1[i];
+    }
+    
+    
+    if(arr1[i]&lt;mn)
+    {
+    mn = arr1[i];
+    }
+    }
+    printf("Maximum element is : %d\n", mx);
+    printf("Minimum element is : %d\n\n", mn);
+}
+    </pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 4:Write a C program to count even and odd elements in an array</h2><pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    int Size, i, a[10];
+    int Even_Count = 0, Odd_Count = 0;
+    printf(&#34;\n Please Enter the Size of an Array :  &#34;);
+    scanf(&#34;%d&#34;, &amp;Size);
+             
+    printf(&#34;\nPlease Enter the Array Elements\n&#34;);
+    for(i = 0; i &lt; Size; i++)
+    {
+    scanf(&#34;%d&#34;, &amp;a[i]);
+    }
+            
+    for(i = 0; i &lt; Size; i ++)
+    {
+    if(a[i] % 2 == 0)
+    {
+    Even_Count++;
+    }
+    else
+    {
+    Odd_Count++;
+    }
+    }
+              
+    printf(&#34;\nEven Numbers= %d &#34;, Even_Count);
+    printf(&#34;\nOdd Numbers= %d &#34;, Odd_Count);
+    return 0;
+}
+            </pre>
+    </section>
+
+
+
+
+    <section class="second">
+        <h2>Example 5:Write a C Program to Calculate Addition of All Elements in Array</h2>
+
+        <pre>
+#include&lt;stdio.h&gt;
+
+int main() {
+    int i, arr[50], sum, num;
+            
+    printf("\nEnter no of elements :");
+    scanf("%d", &amp;num);
+            
+    //Reading values into Array
+    printf("\nEnter the values :");
+    for (i = 0; i &lt; num; i++)
+    scanf("%d", &amp;arr[i]);
+            
+    //Computation of total
+    sum = 0;
+    for (i = 0; i &lt; num; i++)
+    sum = sum + arr[i];
+    
+    //Printing of all elements of array
+    for (i = 0; i &lt; num; i++)
+    printf("\na[%d]=%d", i, arr[i]);
+            
+    //Printing of total
+    printf("\nSum=%d", sum);
+            
+    return (0);
+}
+                      </pre>
+    </section>
+    <section class="first">
+        <h1>Two Dimensional Array in C</h1>
+        <p>The two-dimensional array can be defined as an array of arrays. The 2D array is organized as matrices which can be represented as the collection of rows and columns. However, 2D arrays are created to implement a relational database lookalike data structure
+ <p>
+     <p> It provides ease of holding the bulk of data at once which can be passed to any number of functions wherever required.</p>
+           
+      
+    </section>
+
+    <section class="second">
+        <h2>Example 6:Simple Two dimensional(2D) Array Example</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main(){
+/* 2D array declaration*/
+    int disp[2][3];
+    /*Counter variables for the loop*/
+    int i, j;
+    for(i=0; i&lt;2; i++) {
+    for(j=0;j&lt;3;j++) {
+    printf("Enter value for disp[%d][%d]:", i, j);
+    scanf("%d", &amp;disp[i][j]);
+    }
+    }
+    //Displaying array elements
+    printf("Two Dimensional array elements:\n");
+    for(i=0; i&lt;2; i++) {
+    for(j=0;j&lt;3;j++) {
+    printf("%d ", disp[i][j]);
+    if(j==2){
+    printf("\n");
+    }
+    }
+    }
+    return 0;
+}
+      
+</pre>
+    </section>
+    <section class="second">
+        <h2>Example 7:Matrix multiplication in C</h2>
+        <pre>
+#include&lt;stdio.h&gt;  
+#include&lt;stdlib.h&gt;
+int main(){
+    int a[10][10],b[10][10],mul[10][10],r,c,i,j,k;  
+    system("cls");
+    printf("enter the number of row=");  
+    scanf("%d",&r);  
+    printf("enter the number of column=");  
+    scanf("%d",&c);  
+    printf("enter the first matrix element=\n");  
+    for(i=0;i&lt;r;i++)  
+    {  
+    for(j=0;j&lt;c;j++)  
+    {  
+    scanf("%d",&a[i][j]);  
+    }  
+    }  
+    printf("enter the second matrix element=\n");  
+    for(i=0;i&lt;r;i++)  
+    {  
+    for(j=0;j&lt;c;j++)  
+    {  
+    scanf("%d",&b[i][j]);  
+    }  
+    }  
+              
+    printf("multiply of the matrix=\n");  
+    for(i=0;i&lt;r;i++)  
+    {  
+    for(j=0;j&lt;c;j++)  
+    {  
+    mul[i][j]=0;  
+    for(k=0;k&lt;c;k++)  
+    {  
+    mul[i][j]+=a[i][k]*b[k][j];  
+    }  
+    }  
+    }  
+    //for printing result  
+    for(i=0;i&lt;r;i++)  
+    {  
+    for(j=0;j&lt;c;j++)  
+    {  
+    printf("%d\t",mul[i][j]);  
+    }  
+    printf("\n");  
+    }  
+    return 0;
+}
+             
+      
+</pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 8:TRANSPOSE OF MATRIX:</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+    int main() {
+    int a[10][10], transpose[10][10], r, c;
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &amp;r, &amp;c);
+            
+    // asssigning elements to the matrix
+    printf("\nEnter matrix elements:\n");
+    for (int i = 0; i &lt; r; ++i)
+    for (int j = 0; j &lt; c; ++j) 
+    printf("Enter element a%d%d: ", i + 1, j + 1);
+    scanf("%d", &amp;a[i][j]);
+    }
+        
+    // printing the matrix a[][]
+    printf("\nEntered matrix: \n");
+    for (int i = 0; i &lt; r; ++i)
+    for (int j = 0; j &lt; c; ++j) {
+    printf("%d  ", a[i][j]);
+    if (j == c - 1)
+    printf("\n");
+    }
+            
+    // computing the transpose
+    for (int i = 0; i &lt; r; ++i)
+    for (int j = 0; j &lt; c; ++j) {
+    transpose[j][i] = a[i][j];
+    }
+            
+    // printing the transpose
+    printf("\nTranspose of the matrix:\n");
+    for (int i = 0; i &lt; c; ++i)
+    for (int j = 0; j &lt; r; ++j) {
+    printf("%d  ", transpose[i][j]);
+    if (j == r - 1)
+    printf("\n");
+    }
+    return 0;
+} 
+    </pre>
+    </section>
+    <section class="second">
+        <h2> Example 9:C Program for Bubble Sort to Sort Elements in An Order</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+{
+    int array[100], n, i, j, swap; 
+    printf("Enter number of elements:");
+    scanf("%d", &amp;n); 
+    printf("Enter %d Numbers:", n); 
+    for(i = 0; i &lt; n; i++)
+    scanf("%d", &amp;array[i]); 
+    for(i = 0 ; i &lt; n - 1; i++)
+    {
+    for(j = 0 ; j &lt; n-i-1; j++)
+    {
+    if(array[j] &gt; array[j+1]) 
+    {
+    swap=array[j];
+    array[j]=array[j+1];
+    array[j+1]=swap;
+    }
+    }
+    } 
+    printf("Sorted Array:"); 
+    for(i = 0; i &lt; n; i++)
+    printf("%d ", array[i]);
+    return 0;
+}
+            </pre>
+    </section>
+
+
+    <section class="second">
+        <h2>Example 10:Insertion Sort Program in C</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main(){
+            
+             
+    int i, j, count, temp, number[25];
+    
+    printf("Total Elements: ");
+    scanf("%d",&amp;count);
+    
+    printf("Enter %d elements: ", count);
+    //store input numbers in array
+    for(i=0;i&lt;count;i++)
+    scanf("%d",&amp;number[i]);
+            
+    // Implementation of insertion sort
+    for(i=1;i&lt;count;i++){
+    temp=number[i];
+    j=i-1;
+    while((temp&lt;number[j])&amp;&amp;(j&gt;=0)){
+    number[j+1]=number[j];
+    j=j-1;
+    }
+    number[j+1]=temp;
+    }
+            
+    printf("Order of Sorted elements: ");
+    for(i=0;i&lt;count;i++)
+    printf(" %d",number[i]);
+            
+    return 0;
+}
+           </pre>
+    </section>
+    <section class="second">
+        <h2>Example 11:Selection Sort Program in C</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main(){
+              
+    int i, j, count, temp, number[25];
+            
+    printf("Total Enter?: ");
+    scanf("%d",&amp;count);
+             
+    printf("Enter %d elements: ", count);
+    // elements stored in array
+    for(i=0;i&lt;count;i++)
+    scanf("%d",&amp;number[i]);
+              
+    // Logic of selection sort algorithm
+    for(i=0;i&lt;count;i++){
+    for(j=i+1;j&lt;count;j++){
+    if(number[i]&gt;number[j]){
+    temp=number[i];
+    number[i]=number[j];
+    number[j]=temp;
+    }
+    }
+    }
+             
+    printf("Sorted elements: ");
+    for(i=0;i&lt;count;i++)
+    printf(" %d",number[i]);
+             
+    return 0;
+}
+             
+                  </pre>
+    </section>
+</body>
+
+</html>

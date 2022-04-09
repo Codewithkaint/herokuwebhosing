@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASIC</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .first {
+        border: 4px solid black;
+        background: #caeae0;
+        margin: 10px;
+        padding: 10px 20px;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+        text-decoration: underline;
+
+    }
+
+    .first p {
+        color: blue;
+        text-align: center;
+        font-size: 22px;
+        margin: 22px;
+    }
+
+    h2 {
+        text-align: center;
+
+    }
+
+    pre {padding: 10px 12px;
+        font-size: 18px;
+        text-align: left;
+        margin: 26px auto;
+       display: block;
+       width: 90%;
+       background-color: black;
+       color: white;
+       font-weight: bold;
+    }
+
+    .second {
+        border: 3px solid black;
+        background-color: #bae98b;
+        margin: 30px 10px;
+        padding: 15px 0px;
+    }
+    ul{
+        margin: 22px;
+    }
+    li{
+        font-size: 22px;
+        font-weight: bold;
+
+    }
+ 
+    
+     @media only screen and (max-width:1000px) {
+        .second {
+            width: 200vw;
+
+        }
+        .first{display: block;
+            margin: 20px 10px;
+            width: 190vw;
+        }
+         
+   } 
+</style>
+
+<body>
+    <section class="first">
+        <h1>C BASICS</h1>
+        <p>The best way to learn C programming is by practicing examples. The page contains examples on basic concepts
+            of C programming. You are advised to take the references from these examples and try them on your own.
+
+            All the programs on this page are tested and should work on all platforms.</p>
+    </section>
+    <section class="second">
+        <h2>Example 1: Displaying Hello World</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+    {
+    printf("Hello World");
+    return 0;
+    }
+ </pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 2:C Program to Multiply two Floating Point Numbers</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main(){
+    float num1, num2, product;
+    printf("Enter first Number: ");
+    scanf("%f", &amp;num1);
+    printf("Enter second Number: ");
+    scanf("%f", &amp;num2);
+    //Multiply num1 and num2
+    product = num1 * num2;
+    // Displaying result up to 3 decimal places. 
+    printf("Product of nums is:%.3f",product);
+    return 0;
+    }</pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 3: C Program to Find ASCII Value of a Character
+        </h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+    {
+    char ch;
+    printf("Enter any character:");
+
+    scanf("%c", &amp;ch);
+    printf("ASCII value of %c:%d",ch,ch);
+    return 0;
+        }</pre>
+    </section>
+
+
+
+    <section class="first">
+        <h1>C enums</h1>
+        <p>Enumeration (or enum) is a user defined data type in C. It is mainly used to assign names to integral
+            constants, the names make a program easy to read and maintain.</p>
+    </section>
+    
+    <section class="second">
+        <h2> Example:ENUM</h2>
+        <div class="box"><pre>
+#include&lt;stdio.h&gt;
+enum week {Sun,Mon,Tue,Wed,Thu,Fri,Sat};
+int main()
+    {
+    // creating today variable of enum week type
+    enum week today;
+    today = Wed;
+    printf("Day %d",today+1);
+    return 0;
+    }
+            </pre></div>
+    </section>
+
+
+
+    <section class="first">
+        <h1>C if...else Statement</h1>
+        <p>The if-else statement in C is used to perform the operations based on some specific condition. The operations
+            specified in if block are executed if and only if the given condition is true.</p>
+        <p>There are the following variants of if statement in C language.
+        </p>
+        <ul>
+            <li>If statement</li>
+            <li> If-else statement</li>
+            <li> If else-if ladder</li>
+            <li> Nested if</li>
+        </ul>
+    </section>
+    <section class="second">
+        <h2>Example 1:The if..else statement checks whether the entered age is greater than or equal to 18. If this
+            condition meet then display message &#8220;You are eligible for voting&#8221;, however if the condition
+            doesn&#8217;t meet then display a different message &#8220;You are not eligible for voting&#8221;.</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+int main()
+{
+    int age;
+    printf("Enter your age:");
+    scanf("%d",&amp;age);
+    if(age &gt;=18)
+    {
+    printf("You are eligible for voting");
+    }
+    else
+    {
+    printf("You are not eligible for voting");
+    }
+    return 0;
+    }
+            </pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 2:ROOTS OF QUADRATIC EQUATIONS</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+void main()
+{
+    int a,b,c,d;
+    float x1,x2;
+ 
+    printf("Input the value of a,b & c : ");
+    scanf("%d%d%d",&a,&b,&c);
+    d=b*b-4*a*c;
+    if(d==0)
+    {
+    printf("Both roots are equal.\n");
+    x1=-b/(2.0*a);
+    x2=x1;
+    printf("First  Root Root1= %f\n",x1);
+    printf("Second Root Root2= %f\n",x2);
+    }
+    else if(d>0)
+    {
+    printf("Both roots are real and diff-2\n");
+    x1=(-b+sqrt(d))/(2*a);
+    x2=(-b-sqrt(d))/(2*a);
+    printf("First  Root Root1= %f\n",x1);
+    printf("Second Root root2= %f\n",x2);
+    }
+	else
+	    printf("Root are imaginary;");
+    }
+
+</pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 4:C Program to Check Leap Year</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main(){
+    
+    int year;      
+    printf(&#34;Enter a year\n&#34;);
+    scanf(&#34;%d&#34;, &amp;year);
+    if ( year%400 == 0)      
+    printf(&#34;%d is a leap year.\n&#34;, year);  
+    else if ( year%100 == 0)      
+    printf(&#34;%d is not a leap year.\n&#34;, year); 
+    else if ( year%4 == 0 )      
+    printf(&#34;%d is a leap year.\n&#34;, year);
+    else      
+    printf(&#34;%d is not a leap year.\n&#34;, year);      
+    return 0;    
+        }
+
+</pre>
+    </section>
+    <section class="second">
+        <h2>Example 5:C Program to Check Number is Multiple of 7 or not</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main()
+    {
+    int number;
+    printf(&#34;Enter a number: &#34;);
+    scanf(&#34;%d&#34;,&amp;number);
+    if(number%7==0){
+    printf(&#34;%d is multiple of 7.&#34;,number);
+    }
+   else
+   {
+     printf(&#34;%d is not multiple of 7.&#34;,number);
+   }
+
+   return 0;
+ }
+
+</pre>
+    </section>
+
+</body>
+
+</html>

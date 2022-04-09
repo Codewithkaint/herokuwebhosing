@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOOPS</title>
+</head>
+<link rel="stylesheet" href="./Static/lo.css">    
+
+
+</style>
+
+<body>
+    <section class="first">
+        <h1>LOOPS</h1>
+        <p>Loops in C programming language is a conditional concept used for consecutively executing a line or a block
+            of code over and over again until it reaches the value desired by the programmer. In C programming, there
+            are three types of loops, namely For Loop, While Loop and Do While Loop. Loops in C can also be combined
+            with other control statements that include Break statement, Goto statement and Control statement. These
+            loops can be used anywhere in the program, either as entry control or exit control units.</p>
+        <p>
+            There are 3 types of <strong id="bb">LOOPS</strong> in C.That are following ::
+        </p>
+        <div class="nav">
+        <ul>
+            <li>While Loop</li>
+            <li>Do While Loop</li>
+            <li>For Loop</li>
+        </ul>
+    </div>
+
+        <div class="box">
+            <h1>WHILE-LOOPS</h1>
+            <p>A While loop is the most straightforward looping structure. It is an entry-controlled loop. In a while
+                loop, a condition is evaluated before processing a body of the loop. If a condition is true, then and
+                only then the body of a loop is executed.</p>
+
+            <p>After the body of a loop is executed, the control again goes back to the beginning, and the condition is
+                checked. If it is true, the same process is executed until the condition becomes false. Once the
+                condition becomes false, the control goes out of the loop.</p>
+            <p>In a while loop, if the condition is not true, then the body of a loop will not be executed, not even
+                once.
+
+            </p>
+
+
+            <h1>FOR LOOP</h1>
+            <p>The for loop in C language is used to iterate the
+                statements or a part of the program several times. It
+                is frequently used to traverse the data structures like
+                the array and linked list.
+            </p>
+            <p>In a while loop, if the condition is not true, then the body of a loop will not be executed, not even
+                once.
+
+            </p>
+
+
+            <h1>DO-WHILE LOOP</h1>
+            <p>A Do-while loop is similar to the while loop except that the condition is always executed after the
+            body of a loop. It is also called an exit-controlled loop.<p>
+            </p>
+            <p>In the do-while loop, the body of a loop is always executed at least once. After the body is executed,
+                then it checks the condition. If the condition is true, then it will again execute the body of a loop.
+                Otherwise, the control is transferred out of the loop.
+
+            </p>
+        </div>
+    </section>
+    <section class="second">
+        <h2>Example 1:Check Strong number</h2>
+        <pre>
+
+#include &lt;stdio.h&gt;
+
+
+int main()
+    {
+    int i, originalNum, num, lastDigit, sum;
+    long fact;
+    /* Input a number from user */
+    printf("Enter any number to check Strong number: ");
+    scanf("%d", &num);
+        
+    /* Copy the value of num to a temporary variable */
+    originalNum = num;
+        
+    sum = 0;
+    
+    /* Find sum of factorial of digits */
+    while(num &gt; 0)
+    {
+            
+    /* Get last digit of num */
+    lastDigit = num % 10;
+            
+    /* Find factorial of last digit */
+    fact = 1;
+    for(i=1; i&lt;=lastDigit; i++)
+    {
+    fact = fact * i;
+    }
+            
+    /* Add factorial to sum */
+    sum = sum + fact;
+            
+    num = num / 10;
+    }
+            
+    /* Check Strong number condition */
+    if(sum == originalNum)
+    {
+    printf("%d is STRONG NUMBER", originalNum);
+    }
+    else
+    {
+    printf("%d is NOT STRONG NUMBER", originalNum);
+    }
+    
+    return 0;
+}
+</pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 2:Program to check palindrome number</h2>
+        <div class="box">
+            <pre>
+#include &lt;stdio.h&gt;
+int main()
+{
+    int n, num, rev = 0;
+    /* Input a number from user */
+    printf("Enter any number to check palindrome: ");
+    scanf("%d", &n);
+    /* Copy original value to 'num' to 'n'*/
+    num = n; 
+    /* Find reverse of n and store in rev */
+    while(n != 0)
+    {
+    rev = (rev * 10) + (n % 10);
+    n  /= 10;
+    }
+    /* Check if reverse is equal to 'num' or not */
+    if(rev == num)
+    {
+    printf("%d is palindrome.", num);
+    }
+    else
+    {
+    printf("%d is not palindrome.", num);
+    }
+    return 0;
+}
+            </pre>
+        </div>
+    </section>
+
+
+
+    <section class="second">
+        <h2>Example 3:Convert binary to decimal number system</h2>
+        <pre>
+
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+            
+#define BASE 2
+            
+int main()
+{
+    long long binary, decimal=0, tempBinary;
+    int N=0;
+    printf("Enter any binary number: ");
+    scanf("%lld", &binary);
+    tempBinary = binary;
+    while(tempBinary!=0)
+    {
+    /* If current binary digit is 1 */
+    if(tempBinary % 10 == 1)
+    {
+    decimal += pow(BASE, N);
+    }
+    
+    N++;
+    tempBinary /= 10;
+    }
+        
+    printf("Binary number = %lld\n", binary);
+    printf("Decimal number= %lld", decimal);
+        
+    return 0;
+}            
+</pre>
+    </section>
+
+
+
+    <section class="second">
+        <h2> Example 4:C program to find HCF (GCD) of two numbers</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    int i, num1, num2, min, hcf=1;
+    /* Input two numbers from user */
+    printf("Enter any two numbers to find HCF: ");
+    scanf("%d%d", &num1, &num2);
+    /* Find minimum between two numbers */
+    min = (num1&lt;num2) ? num1 : num2;
+    for(i=1; i&lt;=min; i++)
+    {
+    /* If i is factor of both number */
+    if(num1%i==0 && num2%i==0)
+    {
+    hcf = i;
+    }
+    }
+    
+    printf("HCF of %d and %d = %d\n", num1, num2, hcf);
+            
+    return 0;
+}           </pre>
+    </section>
+
+
+
+
+    <section class="second">
+        <h2>Example 5:Logic to find ones complement of a number</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+
+#define SIZE 8
+            
+int main()
+{
+    char binary[SIZE + 1], onesComp[SIZE + 1];
+    int i, error=0;
+            
+    printf("Enter %d bit binary value: ", SIZE);
+                
+    /* Input binary string from user */
+    gets(binary);
+            
+    /* Store all inverted bits of binary val to onesComp */
+    for(i=0; i&lt;SIZE; i++)
+    {
+    if(binary[i] == '1')
+    {
+    onesComp[i] = '0';
+    }
+    else if(binary[i] == '0')
+    {
+    onesComp[i] = '1';
+    }
+    else
+    {
+    printf("Invalid Input");
+    error = 1;
+    /* Exits from loop */
+    break;
+    }
+    }
+    /* Marks the end of onesComp string */
+    onesComp[SIZE] = '\0';
+    /* Check if there are binary string contains no err */
+    if(error == 0)
+    {
+    printf("Original binary = %s\n", binary);
+    printf("Ones complement = %s", onesComp);
+    }
+    return 0;
+}
+            </pre>
+    </section>
+
+
+    <section class="second">
+        <h2>Example 6: check prime number</h2>
+        <pre>
+
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    int i, num, isPrime;
+        
+    isPrime = 1; 
+    /* Input a number from user */
+    printf("Enter any number to check prime: ");
+    scanf("%d", &amp;num);
+    
+    for(i=2; i&lt;=num/2; i++)
+    {
+    /* Check divisibility of num */
+    if(num%i==0)
+    {
+    /* Set isPrime to 0 indicating it as composite num */
+    isPrime = 0;
+        
+    /* Terminate from loop */
+    break;
+    }
+    }
+            
+    /*
+    * If isPrime contains 1 then it is prime
+    */
+    if(isPrime == 1 &amp;&amp; num &gt; 1)
+    {
+    printf("%d is prime number", num);
+    }
+    else
+    {
+    printf("%d is composite number", num);
+    }
+        
+    return 0;
+            
+}
+</pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 7:All perfect numbers between 1 to n</h2>
+
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int i, j, end, sum;
+            
+    /* Input upper limit to print perfect number */
+    printf("Enter upper limit: ");
+    scanf("%d", &end);
+            
+    printf("All Perfect numbers between 1 to %d:\n", end);
+                
+    /* Iterate from 1 to end */
+    for(i=1; i&lt;=end; i++)
+    {
+    sum = 0;
+
+   
+    for(j=1; j&lt;i; j++)
+    {
+    if(i % j == 0)
+    {
+    sum += j;
+    }
+    }
+            
+    /* If the current number i is Perfect number */
+    if(sum == i)
+    {
+    printf("%d, ", i);
+    }
+    }
+            
+    return 0;
+}
+                      </pre>
+    </section>
+    <section class="second">
+        <h2> Example 8:C Program to check Armstrong number</h2>
+        <pre>
+#include&lt;stdio.h&gt;
+int main()
+    {
+    int num,copy_of_num,sum=0,rem;
+                
+    //Store input number in variable num
+    printf("\nEnter a number:");
+    scanf("%d",&amp;num);
+            
+    /* Value of variable num would change in the
+    below while loop so we are storing it in 
+    another variable to compare the results 
+    at the end of program
+    */
+    copy_of_num = num;
+            
+    /* We are adding cubes of every digit
+    * and storing the sum in variable sum
+    */ 
+    while (num != 0)
+    {
+    rem = num % 10;
+    sum = sum + (rem*rem*rem);
+    num = num / 10;
+    }
+                
+    /* If sum of cubes of every digit is equal to number
+    * itself then the number is Armstrong
+    */
+    if(copy_of_num == sum)
+    printf("\n%d is an Armstrong Number",copy_of_num);
+    else
+    printf("\n%d is not an Armstrong Number",copy_of_num);
+    return(0);
+} 
+    </pre>
+    </section>
+
+    <section class="second">
+        <h2>Example 9:Program to count total digits in a given integer using loop</h2>
+        <pre>
+        #include &lt;stdio.h&gt;
+        int main()
+        {
+        long long num;
+        int count = 0;
+        /* Input number from user */
+        printf("Enter any number: ");
+        scanf("%lld", &amp;num);
+        /* Run loop till num is greater than 0 */
+        do
+        {
+        /* Increment digit count */
+        count++;
+        /* Remove last digit of 'num' */
+        num /= 10;
+        } while(num != 0);
+        printf("Total digits: %d", count);
+        return 0;
+        }</pre>
+    </section>
+    <section class="second">
+        <h2>Example 10:C program to print fibonacci series upto n terms</h2>
+        <pre>
+#include &lt;stdio.h&gt;
+
+int main()
+    {
+    int a, b, c, i, terms;
+        
+    /* Input number from user */
+    printf("Enter number of terms: ");
+    scanf("%d", &terms);
+    
+    /* Fibonacci magic initialization */
+    a = 0;
+    b = 1;
+    c = 0;
+            
+    printf("Fibonacci terms: \n");
+            
+    /* Iterate through n terms */
+    for(i=1; i&lt;=terms; i++)
+    {
+    printf("%d, ", c);
+            
+    a = b;     // Copy n-1 to n-2
+    b = c;     // Copy current to n-1
+    c = a + b; // New term
+    }
+            
+    return 0;
+}</pre>
+    </section>
+</body>
+
+</html>
